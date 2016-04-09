@@ -4,6 +4,7 @@ let path=require('path');
 let common=require('./common');
 let webpack=require('webpack');
 let merge=require('webpack-merge');
+let constants=require('../constants');
 
 
 let devConfig={
@@ -22,17 +23,16 @@ let devConfig={
             {
                 test:/\.js$/,
                 exclude:constants.ROOT_PATH + '/node_modules/',
-                include:constants.APP_PATH,
                 loader:'react-hot!babel-loader'
             },
             {
                 test: /\.css$/,
-                exclude: __dirname + '/node_modules/',
+                exclude: constants.ROOT_PATH + '/node_modules/',
                 loader: 'style-loader!css-loader'
             },
             {
                 test: /\.scss/,
-                exclude: __dirname + '/node_modules/',
+                exclude: constants.ROOT_PATH + '/node_modules/',
                 loader: 'style-loader!css-loader!sass-loader'
             }
         ]
